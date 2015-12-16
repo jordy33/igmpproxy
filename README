@@ -1,0 +1,19 @@
+IGMPproxy is a simple mulitcast router that only uses the IGMP protocol.
+
+Supported operating systems:
+ - Linux
+ - FreeBSD
+ - NetBSD
+ - OpenBSD
+ - DragonFly BSD
+
+This software is released under the GNU GPL license v2. See details in COPYING.
+* tune-s2 3860 H 30000 -lnb CBAND
+* dvbnet -p 43
+* ifconfig dvb0_0 192.168.238.238 hw ether 00:01:02:03:04:05 promisc up
+* echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
+* echo 0 > /proc/sys/net/ipv4/conf/dvb0_0/rp_filter
+* exit
+* igmpproxy -d -v -v igmpproxy.conf
+* cp /usr/local/sbin/igmpproxy /usr/local/bin/.
+ 
